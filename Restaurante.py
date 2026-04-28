@@ -51,7 +51,33 @@ def mostrar_ventas():
 def obtener_precio(venta):
     return venta["valorConsumo"]
 
+
 def ordenar_ventas():
     ventas_restaurante.sort(key=obtener_precio)
     print("\nVentas ordenadas por valor de consumo (Menor a Mayor). 📈")
     mostrar_ventas()
+
+
+def buscar_venta():
+    try:
+        id_buscado = int(input("\nIngrese el ID de la venta a buscar: "))
+        for v in ventas_restaurante:
+            if v["idVenta"] == id_buscado:
+                print(f"\n✅ Venta encontrada:\n{v}")
+                return
+        print("❌ No se encontró ninguna venta con ese ID.")
+    except ValueError:
+        print("Error: Ingrese un número válido.")
+
+def eliminar_venta():
+    try:
+        id_borrar = int(input("\nIngrese el ID de la venta a eliminar: "))
+        for v in ventas_restaurante:
+            if v["idVenta"] == id_borrar:
+                ventas_restaurante.remove(v)
+                print(f"Venta ID {id_borrar} eliminada correctamente. 🗑️")
+                return
+        print("❌ El ID especificado no existe.")
+    except ValueError:
+        print("Error: Ingrese un número válido.")
+
