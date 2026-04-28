@@ -45,7 +45,7 @@ def mostrar_ventas():
     print("\n--- LISTADO DE VENTAS ---")
     for v in ventas_restaurante:
       
-        print(f"ID: {v['idVenta']} | Cliente: {v['nombreCliente']} | Total: ${v['valorConsumo']}")
+        print(f"ID: {v['idVenta']} | Cliente: {v['nombreCliente']} | Mesa: {v['numeroMesa']} | Plato: {v['platoPrincipal']} | Total: ${v['valorConsumo']} | Pago: {v['metodoPago']} | Estado: {v['estadoPedido']}")
     print("--------------------------")
 
 def obtener_precio(venta):
