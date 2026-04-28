@@ -40,3 +40,18 @@ def iniciar_sesion():
     
     print("\nCUENTA BLOQUEADA TEMPORALMENTE. 🚫")
     return False
+
+def mostrar_ventas():
+    print("\n--- LISTADO DE VENTAS ---")
+    for v in ventas_restaurante:
+      
+        print(f"ID: {v['idVenta']} | Cliente: {v['nombreCliente']} | Total: ${v['valorConsumo']}")
+    print("--------------------------")
+
+def obtener_precio(venta):
+    return venta["valorConsumo"]
+
+def ordenar_ventas():
+    ventas_restaurante.sort(key=obtener_precio)
+    print("\nVentas ordenadas por valor de consumo (Menor a Mayor). 📈")
+    mostrar_ventas()
