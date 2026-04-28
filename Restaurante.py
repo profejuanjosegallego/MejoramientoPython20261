@@ -18,3 +18,25 @@ for i in range(1, 11):
     ventas_restaurante.append(venta_inicial)
 
 
+def registrar_usuario():
+    print("\n--- REGISTRO DE NUEVO USUARIO ---")
+    correo = input("Ingrese correo electrónico: ")
+    password = input("Ingrese contraseña: ")
+    usuarios.append({"correo": correo, "password": password})
+    print("Usuario registrado exitosamente. ✅")
+
+def iniciar_sesion():
+    print("\n--- INICIO DE SESIÓN ---")
+    for intento in range(1, 5):
+        correo_ing = input("Correo: ")
+        pass_ing = input("Contraseña: ")
+        
+        for u in usuarios:
+            if u["correo"] == correo_ing and u["password"] == pass_ing:
+                print(f"\n¡Login exitoso! Bienvenido al sistema. 🔓")
+                return True
+        
+        print(f"Credenciales incorrectas. Intentos restantes: {4 - intento}")
+    
+    print("\nCUENTA BLOQUEADA TEMPORALMENTE. 🚫")
+    return False
